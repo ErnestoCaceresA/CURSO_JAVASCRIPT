@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIMERA PAGINA CURSO JAVSCRIPT</title>
+    <!-- estilos -->
+    <link rel="stylesheet" href="styles/PrimerPaginaPrincipal.css">
+</head>
+<body>
+    <h1>CURSO JAVASCRIPT PAGINA 1 (0 - 24)</h1>
+
+    <div style="margin: 30px; font-size: 25px;">
+        <a href="index2.html">SEGUNDA PAGINA DEL CURSO (25 - )</a>
+    </div>
+    <!-- ************** -->
+    <!-- 1 .- VARIABLES -->
+    <!-- ************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                            1 .- VARIABLES\n\n"                         );
+
+        console.log("VAR = para variables globales que no afectan bloque");
+        console.log("LET = variables en los que si afectan los bloques por donde entra");
+        console.log("CONST = variable que una ves declarada no se puede cambiar el valor");
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- ********************** -->
+    <!-- 2 .- OBJETOS Y ARREGLOS -->
+    <!-- *********************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      2 .- OBJETOS Y ARREGLOS\n\n "                     );
+
+        //objetos
+        let objeto = {
+            nombre: "Ernesto Caceres",
+            edad: "35"
+        }
+        //arreglo
+        let arreglo = ["Azul",  "verde", "rojo"]
+        console.log(objeto)
+        console.log(arreglo)
+
+        //Agregando algo a cada uno
+        console.log(" Agregando algo a cada uno: ");
+        objeto.Correo = "ernesto.caceresay@gmail.com"
+        arreglo.push("Naranja")
+        console.log(objeto)
+        console.log(arreglo)
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 3 .- CADENAS DE TEXTO STRING -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      3 .- CADENAS DE TEXTO STRING\n\n "                 );
+
+        let nombre = "Ernesto"
+        let apellido = "Caceres"
+        let saludo = "Hola mundo"
+        let lorem = "           Bueno pues estoes mucho texto para una practica de strings que voy a realizar en jacascript";
+
+        console.log(
+            nombre,apellido,
+            nombre.length,
+            apellido.length,
+        )
+
+        console.log("Imprimiendo sin trim:  ",lorem,)
+        console.log("Imprimiendo CON trim:  ", lorem.trim())
+
+        console.log("Imprimiendo con UPPER CASE:  ", nombre.toUpperCase())
+        console.log("imprimiendo con LOWER CASE:  ", nombre.toLowerCase())
+        console.log("Imprimiendo a ver si incluyye la palabra texto en la cadena:  ", lorem.includes("texto"))
+
+        //Concatenacion te variables
+        console.log("Concatenando texto: ", "BIENVENIDO A TU SITIO WEB " + nombre.toLocaleUpperCase() + " " + apellido.toLocaleUpperCase() + " EN QUE TE PODEMOS AYUDAR?")
+        //Interpolacion de variables
+        //template string
+        let mensaje = `CONCATENANDO CON INTERPOLACION MAS FACIL:   BIENVENIDO A TU SITIO WEB ${nombre.toLocaleUpperCase()} ${apellido.toLocaleUpperCase()} EN QUE LO PODEMOS AYUDAR? `;
+        console.log(mensaje)
+
+        // substring
+        let INTENTO = "Ernesto"
+        console.log("SIRVE PARA RECORTAR TEXTOS, SE LE DA UN RANGO START Y END Y SOLO DEJARA ESE RANGO TODO LO DEMAS SE RECORTARA substring(start,end)")
+        console.log(INTENTO.substring(3,5)) //es
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 4 .- NUMEROS -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      4 .- NUMEROS\n\n "                                );
+
+        let numeroA = 4
+        let numeroB = 3.14
+        let numeroC = new Number(4.3534);      
+        let numeroTexto = "5.64 "
+
+        console. log(`Imprimiendo numeroB:  | ${numeroB} |`)
+        //imprimiendo con precision de deimales
+        console.log(`imprimiendo con PRECISION DE DECIMALES:  | ${numeroB.toFixed(4)} | `)
+        //imprimiendo con parseo
+        console.log(`imprimiendo con PARSEO EN ESTE CASO INT:  | ${parseInt(numeroB)} |`)
+        //parseando texto a numero para hacer operaiones aritmaticas
+        console.log(`PARSEANDO TEXTO A NUMERO PARA HACER OPERACIONES  LA SUMA ES: | ${numeroB + parseFloat(numeroTexto)} |`)
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 4 .- BOLEANOS -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      4 .- BOLEANOS\n\n "                 );
+
+        
+        console.log("numero 0 tiende a: ")
+        console.log(Boolean(0))
+        console.log("numero real tiende a: ")
+        console.log(Boolean(7))
+        console.log("cadena de texto vacia tiende a: ")
+        console.log(Boolean(""))
+        console.log("cadena de texto con aunque sea algo tiende a: ")
+        console.log(Boolean(" h"))
+
+        console.log("tienden tambien a false: null, undefined, NaN")
+        console.log("FALSY Y TRUETY BUSCAR EN INTERNET Y SALDRAN LOS VALORES QUE TIENDEN A FALSE O TRUE")
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 5 .- UNDIFINED, NULL & NaN -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      5 .- UNDIFINED, NULL & NaN\n\n "                 );
+
+        let indefinida
+        let nula = null
+        console.log(`UNDIFINED: una variable no inicializada osea que esta vacia 
+        \n ${indefinida} 
+        \nNULL: una variable que esta vacia pero intencionalmente por el programador 
+        \n ${nula} 
+        \nNaN: Not A Number, cuando hacer una operacion aritmetica con texto en vez de numeros 
+        \n${"hola" * 4}`);
+        
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 6 .- FUNCIONES -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      6 .- FUNCIONES\n\n "                 );
+
+        // Declarando funcion e invocando 
+        function SumaDeDosNumeros(num1,num2){
+            let resultado = num1 + num2;
+            console.log(`Esto es una impresion dentro de una funcion de suma`)
+            return resultado;
+        }
+        let numero1 = 5;
+        let numero2 = 7;
+        let ReturnDeFuncion = SumaDeDosNumeros(numero1, numero2);
+        console.log(`Esto es el valor retornado de la funcion de suma: ${ReturnDeFuncion}`)
+
+        //Declarando funcion con parametros por defecto e invocando
+        function Saludar(nombre = "ERNESTO", edad = 19){
+            console.log(`Esta es una funcion con parametros por defecto :  | Hola mi nombre es ${nombre} y tengo ${edad} | \n\n\n`)
+        }
+        Saludar();
+
+        // FUNCION DECLADAS VS FUNCIONES EXPRESADAS
+        console.log(`FUNCION DECLADAS VS FUNCIONES EXPRESADAS`);
+
+        function FuncionDeclarada(){
+            console.log(`Esto es una funcion DECLARADA puede involucrarse en cualquier parte de nuestro codigo incluso antes e que la funcion sea declarada`);
+        }
+        const funcionExpresada = function(){
+            console.log(`Esto es una funcion EXPRESADA, es decir, una funciones que se le ha asignado como valor a una variable, si invocamos esta funcion antes de su deficinion no funcionara`)
+        }
+
+        FuncionDeclarada();
+        funcionExpresada();
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 7 .- ARREGLOS -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      7 .- ARREGLOS\n\n "                               );
+
+        const arreglo2= [1, true, "HOLA", ["A", "B", "C"]]
+
+        console.log("imprimiendo TODO el arreglo con numeros, cadenas, bolanos y un sub arreglo:")
+        console.log(arreglo2)
+        console.log(`imprimiendo SOLAMENTE posicion 2 de arreglo:`)
+        console.log(arreglo2[2])
+        console.log(`Imprimiendo SOLAMENTE UN ELEMENTO DEL SUBARREGLO dentro del arreglo: `)
+        console.log(arreglo2[3][2])
+
+        const arreglo3 = Array.of(`X`, `Y`, `Z`, 1, 2 , 3);
+        console.log(`Haciendo un nuevo arreglo con la forma Array.of: `)
+        console.log(arreglo3)
+
+        const arreglo4 = Array(20).fill(false);
+        console.log("Aplicando forma de rellenar arreglos con .fill ")
+        console.log(arreglo4)
+
+        const arreglo5 = Array.of("AZUL", "ROJO", "AMARILLO");
+        console.log(arreglo5);
+        // agregando elemento
+        console.log("AGREGANDO ELEMENTO A ARREGLO")
+        arreglo5.push("NUEVOCOLOR")
+        console.log(arreglo5)
+        // quitando ultimo elemento
+        console.log("SACANDO ULTIMO ELEMENTO DEL ARREGLO")
+        arreglo5.pop();
+        console.log(arreglo5)
+        
+        // funcion foreach para sacar los elementos de un arreglo
+        console.log("sacando elementos de un arreglo con la funcion repetitiva FOREACH")
+        arreglo5.forEach(function (el,index){
+            console.log(`id= ${index} : ${el} `)
+        })
+
+        // NUEVA FORMA DE DECLARAR ARREGLOS VACIOS
+        const NumerosVacios = Array(100);
+
+        for(let i = 0; i < NumerosVacios.length; i++){
+            NumerosVacios[i] = i;
+        }
+
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 8 .- OBJETOS -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      8 .- OBJETOS\n\n "                               );
+
+        // objetp con arreglos, funciones, y muchos tipos de datos dentro
+        const Ernesto = {
+            nombre: "Ernesto",
+            edad: 19,
+            pasatiempos: [`correr`, `basketball`, `bicicleta`],
+            casado: false,
+            contacto: {
+                email: `ernesto.caceresay@gmail.com`,
+                facebook: `Ernesto Caceres Ayala`,
+                movil: "4394823987"
+            },
+            saludar: function(){
+                console.log(`| Hola mi nombre es ${this.nombre} y mi movil es ${this.contacto.movil} |`)
+            }
+        }
+
+        // imprimiendo objeto
+        console.log(`IMPRIMIENDO OBJETO CON DIFERENTES TIPOS DE DATOS, ARREGLOS, SUB OBJETOS Y FUNCIONES DENTRO: `)
+        console.log(Ernesto)
+        // imprimiendo datos especificos
+        console.log(`IMPRIMIENDO DATOS EN ESPECIFICO DEL OBJETO: `)
+        console.log(`Nombre del objeto: | ${Ernesto.nombre} |`)
+        console.log(`Segundo pasatiempo del ARREGLO pasatiempo: | ${Ernesto.pasatiempos[1]} |`)
+        console.log(`Imprimiendo el movil del SUB OBJETO contacto: |${Ernesto.contacto.movil} |`)
+        console.log(`Ejecutando funcion con THIS dentro del objeto:`)
+        Ernesto.saludar();
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 9 .- OPERADORES -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      9 .- OPERADORES\n\n "                               );
+
+        console.log("YA TE SABES CASI TODOS LOS OPERADORES, SON LOS MISMO IGUAL QUE C++")
+        console.log("EXCEPCIONES QUE NO HAS VISTO: \n\n")
+
+        //aritmeticos
+        console.log("| ARITMETICOS |")
+        console.log("== OPERADOR PARA COMPARACION SOLO DE VALOR (7 string == 7 numerico)")
+        console.log("7" == 7)
+        console.log("=== OPERADOR PARA COMPARACION DE TIPO DE DATO Y DE VALOR (7 string === 7 numerico) ")
+        console.log("BUENA PRACTICA USAR EL TRIPLE IGUAL")
+        console.log("7" === 7)
+        console.log("!== SUPER DIFERENTE QUE (el que ya te sabias != pero igual que el anterior de tipo de dato) \n\n")
+
+        console.log("| LOGICOS |")
+        console.log("! NOT \n|| OR \n&& Y");
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 10 .- CONDICIONALES -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      10 .- CONDICIONALES\n\n "                               );
+
+        console.log("YA TE SABES TODO")
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 11 .- BUCLES LOOPS -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      11 .- BUCLES LOOPS\n\n "                               );
+
+        console.log("| LOOPS ESPECIALES PARA OBJETOS Y ARREGLOS: |")
+
+        // forin
+        console.log("| FORIN |")
+        console.log("sirve para recorrer todas las propiedades de un OBJETO")
+        const obj = {
+            nombre: "Ernesto",
+            apellido: "Caceres",
+            edad: "19"
+        }
+        // aqui para acceder a una propiedad en especifico no sirve la notacion del punto (obj.VariablesPropiedad) es con corchetes
+        // la constante creada recorrera todos los elementos del objeto y nos podemos referir a ella como si fuera cada elemento de el objeto en este caso (nombre, apellido, edad)
+        for (const VariablePropiedad in obj) {
+            console.log(`Key: ${VariablePropiedad}, value: ${obj[VariablePropiedad]} `)
+        }
+
+        // forof
+        console.log("\n\n| FOROF |")
+        console.log("sirve para recorrer todas las propiedades de CUALQUIER ELEMENTO ITERABLE QUE HAY EN JAVASCRIPT (arreglos, cadenas de texto, etc)")
+        const array = ["VERDE", "ROJO", "NEGRO"]
+        let cadena = "HOLA"
+        console.log("arreglo: ")
+        for (const VariablePropiedad2 of array) {
+            console.log(VariablePropiedad2)
+        }
+        console.log("Cadena de texto: ")
+        for (const VariablePropiedad3 of cadena) {
+            console.log(VariablePropiedad3)
+        }
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 12 .- MANEJO DE ERRORES (TRY CATCH) -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      12 .- MANEJO DE ERRORES (TRY CATCH)\n\n "                               );
+
+        console.log("VER TEMA!!! ME LO SALTE\n\n")
+        console.log("ESTE ES UN TEMA DE UNA ESTRUCTURA TRY CATCH QUE SIRVE PARA IDENTIFICAR ERRORES Y SIRVE PARA:")
+        console.log("\n\nCUANDO HICISTE TU PROGRAMA POR EJEMPLO UN API Y AL USAR TU API EL PROGRAMADOR O USUARIO TUVO UN ERROR \nPOR EJEMPLO DIO UN NUMERO EN TEXTO EN VEZ DE NUMERO NORMAL, TU PUEDES CONTROLAR \nLO QUE IMPRIMA OLA CONSOOLA PARA AVISARLE CUAL FUE EL ERROR ")
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 13 .- BREAK Y CONTINUE -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      13 .- BREAK Y CONTINUE\n\n "                               );
+
+        console.log("| BREAK: |");
+        console.log("Sirve para salir o romper la estructura (condicionales, switch o bucles) justo cuando se pone esa palabra reservada \nsirve mucho para los bucles poniendo una condicional por ejemplo si el numero en el que va es igual a 5 que ejecute BREAK \ny se rompe el ciclo")
+
+        console.log("| CONTINUE: |");
+        console.log("Sirve para pasar por alto en lo que se le puso (por ejemplo poner dentro de un bucle una codicional que si el numero es igual a 5 se ejecuta el continue \nentonces SE SALTA ese numero y sigue con los demas)")
+        
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 14 .- DESTRUCTURACION -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      14 .- DESTRUCTURACION\n\n "                               );
+
+        const numeros = [1,2,3]
+        // | ARREGLO |
+        // SIN DESTRUCTURACION
+        let uno = numeros[0];
+        let dos = numeros[1];
+        let tres = numeros[2];
+        console.log("IMPRIMIENDO ARREGLO SIN DESTRUCTURACION")
+        console.log(uno,dos,tres);
+        
+        // CON DESTRUCTURACION
+        const[one,two,three] = numeros;
+        console.log("IMPRIMIENDO ARREGLO CON DESTRUCTURACION")
+        console.log(one,two,three)
+
+        // | OBJETO |
+        let persona = {
+            NombrePersona: "Ernesto",
+            ApellidoPersona: "Caceres",
+            EdadPersona: 19
+        }
+        // SIN DESTRUCTURACION
+        console.log("IMPRIMIENDO OBJETO SIN DESTRUCTURACION")
+        console.log(persona.NombrePersona, persona.ApellidoPersona, persona.EdadPersona)
+        // CON DESTRUCTURACION
+        let{NombrePersona,ApellidoPersona,EdadPersona} = persona;
+        console.log("IMPRIMIENDO OBJETO CON DESCTRUCTURACION");
+        console.log(NombrePersona,ApellidoPersona,EdadPersona)
+        console.log("(tienen que tener los mismo nombres las variables de la destructuracion de los OBJETOS)")
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 15 .- PARAMETROS REST & OPERADOR SPREAD (usando FOREACH) -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      15 .- PARAMETROS REST & OPERADOR SPREAD (usando FOREACH)\n\n "     );
+
+        // | Parametros rest |
+        console.log("| PARAMETROS REST (... PARAMETROS INFINITOS) | \n\nsirven para cuando dentro de una funcion no sabes cuantos parametros se le va a meter a la funcion el usuario")
+        console.log("Por ejemplo en una funcion que haga la suma de los parametros que le pases a esa funcion, no tienes definido cuantos parametros hacer y para eso siven los parametros rest")
+        function SUMAR(a,b,...c){
+            let resultado = a + b;
+            // FOR EACH: por cada elemento de la funcion rest (c) o tambien puede aplicarse con cualquier elemento iterable (array, object)se evaluara como en este caso "n" y esa n valdra el valor de cada elemento del "objeto o arreglo" primero el valor del primer elemnto, luego valdra el valor del segundo elemento y asi hasta completar con todos los elementos
+            c.forEach(function(n){
+                resultado += n;
+            })
+            return resultado;
+        }
+        let ParametroRestResultado = SUMAR(1,2,3,8,9,4,6,7,3,4,6,7,15);
+        console.log("IMPRIMIENDO FUNCION SUMAR CON LOS PARAMETROS QUE QUERAMOS METERLE: ")
+        console.log(ParametroRestResultado)
+
+        // | Spread (...) |
+        console.log("| OPERADOR SPREAD |\n\n")
+        console.log("'sirve por ejemplo si queremos juntar dos arreglos en uno solo para irme agregando mas cosas aparte de la que ya estaban en esas dos pasadas")
+        const arreglo6 = [1,2,3,4,5];
+        const arreglo7 = [6,7,8,9,0];
+        console.log(arreglo6, arreglo7)
+        const arreglo8 = [...arreglo6, ...arreglo7];
+        console.log("IMPRIMIENDO ARREGLO NUEVO CREADO CON SPREAD")
+        console.log(arreglo8)
+
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 16 .- ARROW FUNCTIONS con FOREACH TAMBIEN (=>) -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("                      16 .- ARROW FUNCTIONS con FOREACH TAMBIEN (=>)\n\n "     );
+
+        // funcion1 SIN arrow function
+        const HELLOWORLD = function(){
+            console.log("Hello world")
+        }
+        console.log(`IMPRIMIENDO FUNCION SIN ARROW FUNCTION:`);
+        HELLOWORLD();
+
+        // funcion1 CON arrow function
+        // solamente cuando es una linea de codigo se pueden omitir las llaves en el arrow function
+        const HELLOWORLD2 = () => console.log("hello world")
+        console.log("IMPRIMIENDO FUNCION1 CON ARROW FUNCTION")
+        HELLOWORLD2();
+
+
+        // funcion2 SIN arrow function
+        const RESTAR = function(n1,n2){
+            console.log("\n\nIMPRIENDO FUNCION 2 SIN ARROW FUNCTION")
+            console.log(n1 - n2);
+        }
+        RESTAR(10,5);
+
+        // funcion2 CON arrow function
+        const RESTAR2 = (nu1,nu2) => {
+            console.log("IMPRIMIENDO FUNCION 2 CON ARROW FUNCTION");
+            console.log(nu1 - nu2);
+        }
+        RESTAR2(10,5)
+
+
+        // foreach SIN arrow function
+        const numbers = [1,2,3,4,5];
+        console.log("\n\nIMPRINIENDO FOREACH SIN ARROW FUNCTION")
+        numbers.forEach(function(n,index){ //en el foreach el primer parametro es como si pusieras numbers[n] y el segundo es un n normal que sirve para el indice
+            console.log(`El ${n} esta en la posicion ${index}`)
+        })
+
+        // foreach CON arrow function
+        console.log("IMPRIMIENDO FOREACH CON ARROW FUNCTION")
+        numbers.forEach((n,index) => { //en el foreach el primer parametro es como si pusieras numbers[n] y el segundo es un n normal que sirve para el indice
+            console.log(`El ${n} esta en la posicion ${index} `)
+        });
+
+
+        // CON FUNCIONES DENTRO DE UN OBJETO NO ES RECOMENDABLE UTILIZAR LAS ARROW FUNCTION
+        console.log("\n\nCON FUNCIONES DENTRO DE UN OBJETO NO ES RECOMENDABLE UTILIZAR LAS ARROW FUNCTION")
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 17 .- PROTOTIPOS (PROGRAMACION ORIENTADA A OBJETOS)-->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              17 .- PROTOTIPOS (PROGRAMACION ORIENTADA A OBJETOS)\n\n "     );
+
+        // funcion constructora
+        function Animal(nombre,genero){
+            // atributos (SIEMPRE deben ir los ATRIBUTOS y METODOS con la palabra THIS)
+            this.nombre = nombre;
+            this.genero = genero;
+            // metodo ya dentro de la funcion constructora SIN PROTOTYPE
+            this.SONAR = function(){
+                console.log(`funcion SIN prototype: Hola soy ${this.nombre} y Hago sonidos de ${this.genero}`)
+            }
+        }
+
+        // metodos agregador al objeto CON PROTOTYPE
+        Animal.prototype.sonar = function(){
+            console.log(`funcion CON prototype: Hola soy ${this.nombre} y Hago sonidos de ${this.genero}`);
+        }
+        
+        // construir varios objetos
+        const Perro = new Animal("Lola", "Perro");
+        const Gato = new Animal("Pelusa", "Gato");
+        const Conejo = new Animal("BoxBunny","Conejo");
+
+        console.log(Perro)
+        console.log(`| ${Perro.nombre} |`)
+        Perro.SONAR();
+        Perro.sonar();
+
+        console.log(Gato)
+        console.log(`| ${Gato.nombre} |`)
+        Gato.SONAR();
+        Gato.sonar();
+
+        console.log(Conejo)
+        console.log(`| ${Conejo.nombre} |`)
+        Conejo.SONAR();
+        Conejo.sonar();
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 18 .- HERENCIA PROTOTIPICA-->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              18 .- HERENCIA PROTOTIPICA\n\n "     );
+
+        // la herencia sirve para otorgarle un objeto padre al objeto nuevo que vamod a crear para en ese nuevo objeto que vamos a crear poder usar los metodos del objeto padre y agregar mas metodos en el objeto hijo
+
+        // USAREMOS COMO OBJETO PADRE AL OBJETO "ANIMAL" DE LA CLASE PASADA (17.-)
+        // herencia prototipica (mismos primeros dos atributos y uno nuevo "tamanio")
+        function Carnivoro(nombre,genero,tamanio){
+            // agregando atributos del objeto padre
+            this.super = Animal;
+            this.super(nombre,genero);
+            // agregando nuevos atributos de este objeto hijo
+            this.tamanio = tamanio;
+        }
+        // Carnivoro esta heredado de Animal
+        Carnivoro.prototype = new Animal();
+        Carnivoro.prototype.constructor = Carnivoro;
+
+        // sobreescritura de metodos del prototipo padre en el hijo modificadas
+        Carnivoro.prototype.sonar = function(){
+            console.log(`SOY EL METODO SONAR PERO MODIFICADA PARA UN OBJETO HIJO CARNIVORO: ME LLAMO ${this.nombre}, soy un ${this.genero} Y TENGO UN TAMANIO ${this.tamanio} `)
+        }
+
+
+        const Leon = new Carnivoro("Alex", "Leon", "| mediano |");
+        console.log(Leon)
+        Leon.sonar();
+
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+    
+
+    <!-- **************************** -->
+    <!-- 19 .- CLASES Y HERENCIAS-->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              19 .- CLASES Y HERENCIAS\n\n "     );
+
+        //                     CLASES
+        // las clases sirven para facilitarnos todo lo de PROTOTIPOS de arriba y hace lo mismo
+        // ES MUCHO MAS FACIL USAR LAS CLASES QUE LOS PROTOTIPOS ASI QUE USAR ESTE METODO MEJOR
+        console.log("ES MUCHO MAS FACIL USAR LAS CLASES QUE LOS PROTOTIPOS ASI QUE USAR ESTE METODO MEJOR\n\n")
+        console.log("           | CLASES |\n")
+        class Animal2{
+            // el constructor es un metodo especial que se ejecuta en el momento de instancias la clase
+            constructor(nombre,genero){
+                this.nombre = nombre;
+                this.genero = genero;
+            }
+            // metodos (en este caso no se necesita poner el function como en las anteriores)
+            sonar(){
+                console.log(`Hago sonidos de ${this.nombre} `)
+            }
+            saludar(){
+                console.log(`Hola me llamo ${this.nombre} y soy un ${this.genero} `)
+            }
+        }
+
+        const Scooby = new Animal2("Scooby", "Perro");
+        console.log(Scooby);
+        Scooby.saludar();
+
+        //                     HERENCIA DE CLASES
+        console.log("           | HERENCIA DE CLASES |\n")
+        class Herbivoro extends Animal2{
+            // mandar a llamar lo que ya se tenia en la clase padre
+            constructor(nombre,genero,dieta){
+                // super es un metodo que manda a llamar el constructor de la clases padre
+                super(nombre,genero);
+                this.dieta = dieta;
+            }
+            // SOBREESCRIBIR METODOS DE LA CLASES PADRE PARA MODIFICARLOS
+            sonar(){
+                console.log(`ESTE ES UN METODO MODIFICADO DE LA CLASE PADRE PARA AHORA LA CLASE HIJO: Hago sonidos de ${this.nombre} | Y SOY HERBIVORO |`)
+            }
+            saludar(){
+                console.log(`ESTE ES UN METODO MODIFICADO DE LA CLASE PADRE PARA AHORA LA CLASE HIJO: Hola me llamo ${this.nombre} y soy un ${this.genero} | Y COMO ${this.dieta} |`)
+            }
+        }
+
+        const Koala = new Herbivoro("Helena", "Koala", "hojas");
+        console.log(Koala);
+        Koala.saludar();
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 20 .- METODOS ESTATICOS, GETTERS Y SETTERS-->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              20 .- METODOS ESTATICOS, GETTERS Y SETTERS\n\n "     );
+
+
+        class Animal3{
+            constructor(nombre,genero){
+                this.nombre = nombre;
+                this.genero = genero;
+                // para getter y setter
+                this.raza = null;
+            }
+            sonar(){
+                console.log(`Hago sonidos de ${this.nombre} `)
+            }
+            saludar(){
+                console.log(`Hola me llamo ${this.nombre} y soy un ${this.genero} `)
+            }
+            // ESTE ES UN METODO ESTATICO
+            // un metodo estatico se puede ejecutar sin necesidad de instanciar la clase osea sin necesidad de crear un objeto tipo Animal3 con el const x = new Animal3()
+            // Este metodo se puede ejecutar simplemente con el NOMBRE DE LA CLASE y el punto despues el nombre
+            static queSoy(){
+                console.log(`Los animales son considerados los seres vivos mas importantes del... | ESTO ES UN METODO ESTATICO |`)
+            }
+            //     GETTER Y SETTER
+            // los setters y getters son metodos especiales que nos permiten establecer y obtener los valores de atributos de nuestra clase
+            
+            // para capturar el dato mas adelante despues de crear el objeto
+            get GetRaza(){
+                return this.raza;
+            } 
+            // fijar el dato obtenido en la variable raza
+            set SetRaza(raza){
+                this.raza = raza;
+            }
+        }
+
+
+        // llamando a el METODO ESTATICO
+        console.log(`| METODO ESTATICO | \n\n`)
+        Animal3.queSoy();
+
+        // SET Y GET al objeto!!
+        const Bibi = new Animal3(`Bibi`, `Perro`);
+        Bibi.SetRaza = "French poodle";
+        console.log(`\n\n| SETTER & GETTER |\n\n`)
+        console.log(Bibi)
+        console.log(Bibi.GetRaza)
+
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 21 .- OBJETO CONSOLE-->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              21 .- OBJETO CONSOLE\n\n "     );
+
+        console.log("ESTO ES UNA IMPRESION EN CONSOLE console.log()");
+        console.error("ESTO ES UN ERROR EN LA CONSOLA console.error()")
+        console.warn("ESTO ES UNA ADVERTENCIA EN LA CONSOLA console.warn()")
+        console.dir(document)
+
+        console.group(`ESTO ES PARA ENGRUPAR DIFERENTES CONSOLES console.group() -> console.groudEnd()`)
+        console.log("1.-Node.js")
+        console.log("2. React.js")
+        console.log("3.- Vue.js")
+        console.groupEnd();
+
+        console.table(Bibi)
+        console.time("Cuanto tiempo tarda mi codigo console.time()")
+        const TIME = Array(100);
+
+        for(let i = 0; i < TIME.length; i++){
+            TIME[i] = i;
+        }
+        console.timeEnd("Cuanto tiempo tarda mi codigo console.time()")
+
+        // console.log("console.error() => sirve para imprimir en rojo errores\nconsole.warn() => sirve para imprimir advertencias\nconsole.clear() => sirve para limpiar la consola")
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 22 .- OBJETO DATE-->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              22 .- OBJETO DATE\n\n "     );
+
+        console.log(Date());
+
+        let fecha = new Date();
+        console.log(fecha);
+        // dia del mes
+        console.log("Imprimiendo dia del mes");
+        console.log(fecha.getDate());
+        // dia de la semana D L M M J V -> 0 1 2 3 4 5 6
+        console.log("Imprimiendo dia de la semana");
+        console.log(fecha.getDay());
+        // mes Ene Feb Mar Abr May Jun Jul Ago Sep Oct Nov Dic -> 0 1 2 3 4 5 6 7 8 9 10 11
+        console.log("Imprimiendo mes");
+        console.log(fecha.getMonth());
+        // anio
+        console.log("Imprimiendo el anio")
+        console.log(fecha.getFullYear())
+        // imprimiendo horas por separado
+        console.log("imprimiendo horas por separado")
+        console.log(fecha.getHours())
+        console.log(fecha.getMinutes())
+        console.log(fecha.getSeconds())
+        console.log(fecha.getMilliseconds())
+        // imprimiendo de una forma mas humanamente entendible (.toString)
+        console.log("imprimiendo de una forma mas humanamente entendible (.toString)")
+        console.log(fecha.toString())
+        console.log(fecha.toDateString())
+        console.log(fecha.toLocaleDateString())
+        console.log(fecha.toLocaleString())
+        console.log(fecha.toLocaleTimeString())
+        // imrpimiendo la famosa fecha time stand que son los segundos que han pasado desde el primero de enero de 1970
+        // sirve para bases de datos o si quisieramos hacer un programa para hacer sumas o restas de fechas, toda la fecha la convertimos a este time stand y hacer la operacion y convertir devuelta
+        console.log("imrpimiendo la famosa fecha time stand que son los segundos que han pasado desde el primero de enero de 1970")
+        console.log(Date.now())
+
+        console.log("\n\nSI MI APLICACION REQUIERE MUCHO DEL TIEMPO ES RECOMENDABLE BUSCAR LA | LIBRERIA MOMENT.JS |")
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 23 .- OBJETO MATH-->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              23 .- OBJETO MATH\n\n "     );
+
+        console.log("TODAS LAS FUNCIONES DE MATH: ")
+        console.log(Math);
+        // PI
+        console.log(`IMRPIMIENDO EL PI: ${Math.PI} `)
+        // valor absoluto
+        console.log(`valor absoluto de -10: ${Math.abs(-10)} `)
+        // redondar hacia el numero entero mayor
+        console.log(`redondeo hacia entero mayor 7.2: ${Math.ceil(7.2)} `)
+        // redondear hacia abajo
+        console.log(`redondeo hacia entero menor 7.2: ${Math.floor(7.2)} `)
+        // redondeo normal
+        console.log(`redondeo normal 7.2: ${Math.round(7.2)} `)
+        // raiz cuadrada
+        console.log(`raiz cuadrada de 95: ${Math.sqrt(95)} `)
+        // potencia (base,elevacion)
+        console.log(`potencia (base,elevacion) ${Math.pow(5,2)} `)
+        // VALOR ALEATORIO  ENTRE UN RANGO CON REDONDEO
+        console.log(`MUMERO ALEATORIO ENTRE 0 a 1000 CON REDONDEO: ${Math.round(Math.random() * 1000)} `)
+
+        
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 24 .- ALERT, CONFIRM Y PROMPT-->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              24 .- ALERT, CONFIRM Y PROMPT\n\n "     );
+
+        
+        console.log("estas 3 funciones son del padre WINDOW y window tiene todas estas mas funciones: ")
+        console.log(window)
+
+        console.log("no necesariamente tiene que llevar el window. antes en las 3:")
+        console.log(`\n\n| ALERT | `)
+        console.log(` window.alert("Hola esto es una alerta") `)
+        console.log("\nESTO DA UN AVISO EN LA VENTANA PERO SOLAMENTE TIENE UN BOTON DE ACEPTAR\n\n")
+        
+        console.log(`\n\n| CONFIRM | `)
+        console.log(` window.confirm("Esto es una confirmacion") `)
+        console.log(`\nESTO DA UN AVISO EN LA VENTANA PERO ESTA TIENE DOS BOTONES (ACEPTAR Y CANCELAR)\n\nY ESTO VALIDA DEPENDIENDO A TRUE O FALSE\n\n`)
+        console.log("let variable = confirm(`Quiere perimitir que esto... `)")
+
+        console.log(`\n\n| PROMPT | `)
+        console.log(` window.prompt("Esto es un prompt") `)
+        console.log(`\nESTO DA UN AVISO EN LA VENTANA Y SIRVE PARA QUE EL USARIO INGRESE UN VALOR\n\n`)
+        console.log("let variable = prompt(`Ingresa el valor que quieras `)")
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+</body>
+</html>

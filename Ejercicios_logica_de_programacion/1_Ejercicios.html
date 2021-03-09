@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIOS 1</title>
+</head>
+<body>
+    <h1>EJERCICIOS LOGICA DE PROGRAMACION 1</h1>
+
+    <div style="margin: 30px; font-size: 25px;">
+        <a href="../index2.html">VOLVER SEGUNDA PAGINA DEL CURSO (25 -  )</a>
+    </div>
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 1 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 1 \n\n "     );
+
+        console.log("| Programa una funcion que cuente el numero de caracteres de una cadena de texto, pe. miFuncion(`hola mundo`) devolvera 10 |\n\n")
+        //                                      |   cadena.length   |
+
+        const Ejercicio1 = (cadena = "") =>
+        (!cadena) //es como el if pero mas reducido con ? para lo verdadero (la cadena esta vacia) y : para lo falso se puede poner en una misma linea de codigo
+        ? console.warn("No ingresanste ninguna cadena")
+        : console.info(`la cadena ${cadena} tiene ${cadena.length} caracteres`);
+
+        Ejercicio1("Hola mundo")
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+    
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 2 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 2 \n\n "     );
+
+
+
+        console.log("| Programa una funcion que te devuelva el texto recortado segun el numero de caracteres indicados |\n\n")
+        //                                      |   cadena.substring(start,end)   |
+        
+
+        const Ejercicio2 = (cadena2 = "", val= undefined) =>
+        (!cadena2)
+        ? console.warn("No ingresaste una cadena de texto")
+        : console.info(cadena2.slice(0, val));
+
+        Ejercicio2("Hola mundo", 4);
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 3 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 3 \n\n "     );
+
+        console.log("| Programa una funcion que dada una string te devuelva una array de textos separados por cierto caracter, pe: \n miFuncion(`hola que tal`) devolvera [`hola`, `que` `tal`] |\n\n");
+
+        const Ejercicio3 = (texto3) => {
+            if(texto3 !== "" && typeof(texto3) == "string"){
+                let ArrayResultante = texto3.split(" ");
+                return ArrayResultante
+            }else{
+                console.error("You must submit a sting on the function");
+            }
+        }
+
+        console.log(Ejercicio3("Esto es la prueba de el ejercicio 3"));
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 4 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 4 \n\n "     );
+
+        console.log("| Programa una funcion que repita un texto X veces, pe. \n miFuncion(`Hola mundo`,3) devolvera Hola mundo Hola mundo |\n\n");
+
+        const Ejercicio4 = (texto4 = "",n = undefined) => {
+            if(!texto4) return console.warn(`no ingresaste un texto`); // usar los return para quebrar la ejecucion de la funcion
+
+            if(n === undefined) return console.warn("No ingresaste el numero de veces a repetir el texto");
+
+            if(n < 0) return console.error("el numero de veces a repetir no puede ser menor a cero");
+
+            for(let i = 1; i < n; i++ ){
+                console.info(`${texto4}, ${i}`);
+            }
+        }
+        Ejercicio4("Hola mundo", 4);
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 5 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 5 \n\n "     );
+
+        console.log("| Programa una funcion que  que invierta las palabras de una cadena de texto, pe.\n MiFuncion(`hola mundo`) devolvera `odnum aloh`|\n\n");
+
+        const Ejercicio5 = (cadena = "") =>{
+            (!cadena)
+            ? console.warn(`No ingresaste ninguna cadena`)
+            : console.info(cadena.split("").reverse().join("")); //primero se separa la palabra con split con comillas vacias para que tome como corte cada letra, luego con reverse se voltean y se vuelve a unir en un texto con join pasandole igual unas comillas vacias
+        }
+
+        Ejercicio5("hola mundo");
+        Ejercicio5(`Javascript es un lenguaje de programacion muy poderoso`)
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 6 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 6 \n\n "     );
+
+        console.log("| Programa una funcion para contar el numero de veces que se repite una palabra en un texto largo, pe.\n pe.miFuncion(`hola mundo adios mundo`, `mundo`) devera devolver 2|\n\n");
+
+        const Ejercicio6 = (cadena = "", texto = "") =>{
+            if(!cadena) return console.warn("No ingresaste el texto largo");
+            if(!texto) return consele.warn("No ingresaste la palabra a evaluar");
+
+            let i = 0, contador = 0;
+
+            while(i !== -1){ //cuando la funcion indexof no encuentra el texto que estamos buscando en otro, este devuelve un -1
+                i = cadena.indexOf(texto, i); //la palabra a buscar esta en la variable texto, y se evaluara la posicion i para que vaya en bucle y busque en todo
+                if(i !== -1){ //significa que encontro la palabra
+                    i++;
+                    contador++;
+                }
+            }
+            return console.info(`la palabra "${texto}" se repite ${contador} veces `)
+        }
+
+        Ejercicio6("Hola esta es una prueba esta teniendo esta", "esta");
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 8 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 8 \n\n "     );
+
+        console.log("| Programa una funcion que elimine cierto patron de caracteres de un texto dado ep. \n MiFuncion(` xyz1, xyz2, xyz3, xyz4,` , `xyz`) retornara 1, 2, 3 , 4|\n\n");
+        //REPLACE, EXPRESIONES REGULARES
+
+        const Ejercicio8 = (text = "", patron = "") => {
+            (!text) 
+            ? console.error("No ingresaste ningun texto a evaluar")
+            :(!patron) 
+            ? console.error("No ingresaste ningun patron a eliminar")
+            : console.info(text.replace(new RegExp(patron, "ig"), "")); //remplazar expresion regular con esas banderas, por "" (NADA)
+        }
+
+        Ejercicio8("xyz1, xyz2, xyz3, xyz4, xyz5, xyz6", "xyz" );
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 9 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 9 \n\n "     );
+
+        console.log("| Programa una funcion que obtenga un numero aleatorio entre 501 y 600\n\n");
+        
+        const Ejercicio9 = () => console.info(Math.round( (Math.random() * 100) ) + 500 );
+        //redondear el random para que no de decimales y multiplicarlo por 100 para que de un numero aleatorio entre el 0 y 100 y despues sumarle 500 para que sea entre 501 y 600
+
+        Ejercicio9();
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+    
+    <!-- **************************** -->
+    <!-- EJERCICIO 10 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 10 \n\n "     );
+
+        console.log("| Programa una funcion que reciba un numero y evalue si es capicua o no(que se lee igual en un sentido que en otro) pe. 2002 es capicua devolvera true\n\n");
+        
+        const Ejercicio10 = (numero = 0) =>{
+            if(!numero) return console.warn("'No ingresate ningun numero");
+
+            if(typeof(numero) !== "number") return console.error(`El valor ${numero} que ingresate no es un numero `);
+
+            numero = numero.toString(); //convertir a cadena de texto para que no se eliminen los ceros
+            let alrevez = numero.split("").reverse().join("");
+
+            return( numero === alrevez)
+            ? console.info("Si es capicua")
+            : console.info("No es capicua")
+        }
+
+        Ejercicio10(2002);
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 11 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 11 \n\n "     );
+
+        console.log("| Programa una funcion que calcule el factorial de un numero\n\n");
+
+        const Ejercicio11 = (numero = undefined) => {
+            if(numero === undefined) return console.warn("No ingresaste un numero");
+            if(typeof(numero) !== "number") return console.error("El valor ingresado no es un numero");
+            if(numero === 0) return console.error("El numero no puede ser cero");
+            if(Math.sign(numero) === -1) return console.error("El numero no puede ser negativo")
+
+            let factorial = 1;
+
+            for(let i = numero; i > 1; i--){
+                factorial *= i;
+            }
+
+            return console.info(factorial);
+        }
+
+        Ejercicio11(7);
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 12 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 12 \n\n "     );
+
+        console.log("| Programa una funcion que determine si un numero es primo (aquel que solo es divisible por si mismo y 1)\n\n");
+
+        const Ejercicio12 = (numero = undefined) => {
+            if(!numero) return console.error("No ingresaste ningun numero");
+            if(typeof(numero) !== "number") return console.error("El dato que ingresaste no es un numero");
+
+            return (numero === 1 || (numero % 2) == 0)
+            ? console.info(`el numero ${numero} SI ES NUMERO PRIMO`)
+            : console.info(`el numero ${numero} NO NUMERO PRIMO`)
+        }
+
+        Ejercicio12(3);
+        
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 13 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 13 \n\n "     );
+
+        console.log("| Programa una funcion que determine si un numero es par o impar\n\n");
+
+        const Ejercicio13 = (numero = undefined) => {
+            if(!numero) return console.error("No ingresaste ningun numero");
+            if(typeof(numero) !== "number") return console.error("El numero que ingresaste no es un numero");
+
+            return (numero % 2 == 0) 
+            ? console.info(`El numero ${numero} ES PAR  `)
+            : console.info(`El numero ${numero} ES IMPAR  `)
+        }
+
+        Ejercicio13(4);
+        
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 14 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 14 \n\n "     );
+
+        console.log("| Programa una funcion para convertir Celsius a Fahrenheit\n\n");
+
+
+        console.log("ESTE ALGORITMO YA LO HE HECHO ANTES, SALTAR")
+
+        
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 15 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 15 \n\n "     );
+
+        console.log("| Programa una funcion para convertir numeros de base binaria a decimal y viceversa\n\n");
+
+
+        console.log("IGNORAR ESTE EJERCICIO");
+        
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 16 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 16 \n\n "     );
+
+        console.log("| Programa una funcion que devuelva el monto final despues de aplicar un descuento a una cantidad dada ej. MiFuncion(1000,2) devolvera 800\n\n");
+
+
+        console.log("ESTE ALGORITMO YA LO HE HECHO ANTES,  SALTAR")
+        
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 17 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 17 \n\n "     );
+
+        console.log("| Programa una funcion que dada una fecha valida determine cuantos años han pasado hasta el dia de hoy expresado en años\n\n");
+
+        const Ejercicio17 = (fecha = undefined) => {
+            if(fecha === undefined) return console.warn("no ingresaste la fecha");
+            if( ! (fecha instanceof Date) ) return console.error("El valor que ingresaste no es una fecha valida"); //si la variable no es instancia Date
+
+            let hoyMenosFecha = new Date().getTime() - fecha.getTime();  //resultado en milisegundos
+            let aniosEnMS = 1000 * 60 * 60 * 24 * 365 //milisegundos que pasan en un año (milisegundos * seg * min * horas * dias)
+
+            aniosHumanos = Math.floor(hoyMenosFecha / aniosEnMS); //resultado
+
+            return (Math.sign(aniosHumanos) === -1) // si el resultado es negativo osea que ingreso un anio que aun falta
+            ? console.info(`Faltan ${Math.abs(aniosHumanos)} para ${fecha.getFullYear()} `)
+            : (Math.sign(aniosHumanos) === 1)
+            ? console.info(`Han pasado ${aniosHumanos} desde ${fecha.getFullYear()}`)
+            : console.info(`estamos en el año actual ${fecha.getFullYear()} `)
+        }
+
+        Ejercicio17(new Date(1960,4,23));
+        
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 18 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 18 \n\n "     );
+
+        console.log("| Programa una funcion que dada una cadena de texto cuente el numero de vocales y consonantes\n\n");
+
+        const Ejercicio18 = (texto = "") => {
+            if(!texto) return console.warn("No ingresaste ninguna cadena de texto");
+            if(typeof(texto) !== "string") return console.error("El dato que ingresaste no es una cadena de texto");
+
+            let vocales = 0;
+            consonantes = 0;
+
+            texto = texto.toLocaleLowerCase();
+
+            for (let letra of texto) {
+                if(/[aeiouáéíóú]/.test(letra)){ //SI LA LETRA CONTIENE UNO DE ESAS AGRUPACIONES
+                    vocales++;
+                }
+                if(/[bcdfghjklmnpqrstvwxyz]/.test(letra)){ //SI LA LETRA CONTIENE UNO DE ESAS AGRUPACIONES
+                    consonantes++;
+                }
+            }
+
+            return console.info(`Vocales: ${vocales} Consonantes: ${consonantes} `)
+        }
+
+        Ejercicio18("HOla mUndo");
+        
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 19 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 19 \n\n "     );
+
+        console.log("| Programa una funcion que valide que un texto sea un nombre valido\n\n");
+
+        const Ejercicio19 = (nombre = "") => {
+            if(!nombre) return console.warn("No ingresaste ninguna cadena de texto");
+            if(typeof(nombre) !== "string") return console.error("El dato que ingresaste no es una cadena de texto");
+
+            let expReg = /^[A-Za-zÑñÁáÉéÍíÓóÚú\s]+$/g.test(nombre); //^ que no contenga nada atras de la cadena a evalular [A-Za-z] evaluar que tenga las letras del abecedario $ que no contenga nada despues de la palabra a evaluar  bandera g = que no se detenga en la primer que encuentre
+
+            return(expReg)
+            ? console.info(`${nombre}, es un nombre valido `)
+            : console.info(`${nombre}, no es un nombre valido `)
+
+        }
+
+        Ejercicio19("Ernesto Caceres")
+        Ejercicio19("Rogelio%,76")
+        
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 20 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 20 \n\n "     );
+
+        console.log("| Programa una funcion que valide que un texto sea un email valido\n\n");
+
+        const Ejercicio20 = (email = "") => {
+            if(!email) return console.warn("No ingresaste un email");
+            if(typeof(email) !== "string") return console.error("El dato que ingresaste no es una cadena de texto");
+
+            let expReg = /[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})/i.test(email); //TODO LO QUE SE VERIFICA PARA QUE SEA UN EMAIL con bandera i para ignorar minusculas y mayusculas
+
+            return(expReg)
+            ? console.info(`${email}, es un email valido `)
+            : console.warn(`${email}, no es un email valido `)
+        }
+
+        Ejercicio20("ernesto.caceresay@gmail.com");
+        Ejercicio20("ernesto.Ayala.")
+        Ejercicio20("Ernesto.Andres@hotmail")
+        
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 21 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 21 \n\n "     );
+
+        console.log("| Programa una funcion que dado un array numerico devuelve otro array con los numeros elevados al cuadrado \n\n");
+
+        
+        const Ejercicio21 = (Arr = undefined) => {
+            if(Arr === undefined) return console.warn("No ingresaste ningun arreglo");
+            if( ! (Arr instanceof Array)) return console.error("El valor que ingresaste no es un arreglo") //instance of para saber el tipo
+            if(Arr.length === 0) return console.error("El arreglo esta vacio")
+
+            for(let i of Arr){
+                if(typeof i !== "number"){
+                    return console.error(`El valor ${i} no es un numero`); //recorrer el arreglo para identificar si todos son numeros
+                    //la i va a valer lo que contiene cada posicion del areglo por cada vuelta que de en el bucle
+                }
+            }
+    
+            const newArr = Arr.map(el => el * el) //FUNCION MAP para arreglo, para crear un nuevo arreglo basandonos en otro con sus modificaciones,  elemento de cada dato del arreglo se cambiara por elemento por elemento
+    
+            return console.info(`Arreglo original ${Arr} \nArreglo elevado al cuadrado ${newArr}`);
+        }
+
+        Ejercicio21([9,5,7,9]);
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 22 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 22 \n\n "     );
+
+        console.log("| Programa una funcion que dado un array devuelva el numero mas alto y el mas bajo de dicho array el.[1,4,5,99,-60] devolvera [99,-60]\n\n");
+
+        
+        const Ejercicio22 = (Arreglo = undefined) => {
+            if(Arreglo === undefined) return console.error("No ingresaste nada a la funcion");
+            if( ! (Arreglo instanceof Array) ) return console.error("No ingresaste un arreglo a la funcion");
+            if(Arreglo.length === 0) return console.error("Ingresaste un arreglo vacio")
+            for(let i of Arreglo){
+                if(typeof(i) !== "number") return console.error(`El valor ${i} no es un numero `)
+            }
+
+            let mayor = 0;
+            for(let i of Arreglo){
+                if(i > mayor) mayor = i;
+            }
+
+            let menor = mayor;
+            for(let i of Arreglo){
+                if(i < menor) menor = i;
+            }
+
+            return console.info([mayor,menor]);
+
+        }
+
+        Ejercicio22([1,2,3,4,5]);
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 23 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 23 \n\n "     );
+
+        console.log("| Programa una funcion que dado un array de numeros devuelva un objeto con 2 arreglos en el primero almacena los numeros pares y en el segundo los impares\n\n");
+
+        const Ejercicio23 = (Arreglo = undefined) => {
+            if(Arreglo === undefined) return console.error("No ingresaste nada a la funcion");
+            if( ! (Arreglo instanceof Array) ) return console.error("No ingresaste un arreglo a la funcion");
+            if(Arreglo.length === 0) return console.error("Ingresaste un arreglo vacio")
+            for(let i of Arreglo){
+                if(typeof(i) !== "number") return console.error(`El valor ${i} no es un numero `)
+            }
+
+            let Pares = new Array;
+            let Impares = new Array;
+
+            for(let i of Arreglo){
+                if(i % 2 === 0) Pares.push(i);
+                else Impares.push(i);
+            }
+
+            return console.info({Pares,Impares})
+        }
+
+        Ejercicio23([1,2,3,4,5,6]);
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- EJERCICIO 27 -->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              EJERCICIO 27 \n\n "     );
+
+        console.log("| Programa una clase llamada pelicula (ESPECIFICACIONES EN CODIGO COMENTARIOS) \n\n");
+        /*
+        La clase recibira un objeto al momento de instanciarse con los siguientes datos: id de la pelicula en IMDB, titulo, director, anio de estreno, pais o paises de origen, generos y calificacion en el IMDB
+        
+        -todos los datos del objeto son obligatorios.
+        -Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 7 restantes numeros.
+        -valida que el titulo no rebase los 100 caracteres.
+        -valida que el director no rebase los 50 caractes.
+        -valida que el anio de estreno sea un numero entero de 4 digitos.
+        -valida que el pais o paises sean introducidos en forma de arreglo
+        -Valida que los generos introducidos esten dentro de los generos aceptados
+        -Crea un metodo estatico que devuelva los generos aceptados
+        -Valida que la calificacion se un numero entre 0 y 10 pudiendo se decimal de una posicion
+        -Crea un metodo que devuelva toda la ficha tecnica de la pelicula
+        -Apartir de un arreglo con la informacion de 3 peliculas genera 3 instancias de la clase de forma automatizada e imprime la ficha tecnica de cada pelicula.
+
+        *generos aceptados: Acrion,Adult,Adventure,Animation,Biography,Comedy,Crime,Documentary,Drama,Family,Fantasy,Film Noir,Game-show,History,Horror,Musical,Mystery,News,Reality-TV,Romance,Sci-Fi,Short,Sport,Talk-Show,Thrilles,War,Werstern.
+
+        */
+
+        class Pelicula{
+            constructor( { id,titulo,director,estreno,pais,generos,calificacion } ){
+                this.id = id;
+                this.titulo = titulo;
+                this.director = director;
+                this.estreno = estreno;
+                this.pais = pais;
+                this.generos = generos;
+                this.calificacion = calificacion;
+
+                this.validarIMDB(id);
+                this.validarTitulo(titulo);
+                this.validarDirector(director);
+                this.validarEstreno(estreno)
+                this.validarPais(pais)
+            }
+            //METODOS GENERICOS PARA REUTILIZAR Y OPTIMIZAR: 
+
+            validarCadena(propiedad,valor){ //como se usara para varias propiedades ingresar la propiedad y el valor a validar, para si no cumple, en el mensale de error diga en que propiedad y con que valor ingresado tiene el error
+                if(!valor) return console.warn(`${propiedad} "${valor}" esta vacio `);
+                if(typeof(valor) !== "string") return console.error(`${propiedad} "${valor}" ingresado, NO es una cadena de texto `);
+
+                return true;
+            }
+            validarLongitudCadena(propiedad,valor,longitud){
+                if(valor.length > longitud) return console.error(`${propiedad} "${valor}" excede el numero de caracteres permitidos (${longitud}) `);
+
+                return true; //si no entro a la condicion anterior osea que todo esta bien
+            }
+            validarNumero(propiedad,valor){
+                if(!valor) return console.error(`${propiedad} "${valor}" esta vacio `);
+                if(typeof(valor) !== "number") return console.error(`${propiedad} "${valor}" no es un numero `);
+
+                return true;
+            }
+            validarArreglos(propiedad,valor){
+                if(!valor) return console.warn(`${propiedad} "${valor}" esta vacio `);
+                if( ! (valor instanceof Array) ) return console.error(`${propiedad} "${valor}" no es un arreglo `);
+                if(valor.length === 0) return console.error(`${propiedad} "${valor}" no tiene datos `);
+
+                for(let i of valor){
+                    if(typeof i !== "string") return console.error(`El valor ${i} ingresado NO es una cadena de texto `);
+                }
+
+                return true;
+            }
+
+
+            //VALIDACIONES DE INSTRUCCIONES:
+
+            validarIMDB(id){
+                if(this.validarCadena("IMBD id", id)){ //si esta bien la validacion, la funcion antes programada retorna un true asi que si entra a este if
+                    if( ! (/^([a-z]{2})([0-9]{7})$/.test(id))  ){ //si la expresion regular es false !
+                        /*  ^ no debe haber nada antes de la cadena
+                            ([a-z]{2}) los primeros dos caracteres debe contener alguna letra de la a a la z en minusculas
+                            ([0-9]{7}) que los siguientes 7 caracteres sean numeros del 0 al 9
+                        */
+                        return console.error(`IMDB id "${id}" no es valido, debe tener 9 caracteres, los 2 primeros letras minusculas, los 7 restantes numeros `)
+                    }
+                    //si el caso no entra al if de arriba significa que ingreso el IMDB bien asi que asi lo dejamos no hacemos nada
+                }
+            }
+            validarTitulo(titulo){
+                if(this.validarCadena("titulo",titulo)) 
+                this.validarLongitudCadena("titulo",titulo,100);
+            }
+            validarDirector(director){
+                if(this.validarCadena("director",director))
+                this.validarLongitudCadena("director",director,50);
+            }
+            validarEstreno(estreno){
+                this.validarNumero("Año de estreno",estreno);
+                if( ! (/^([0-9]{4})$/.test(estreno))) return  console.error(`Año de estreno ${estreno} no es valido, debe ser un numero de 4 digitos `)
+                //^ no debe haber nada antes
+                //[0-9]{3} solamente acepta numeros del 0 al 9, y eso deben ser 4 numeros
+            }validarPais(pais){
+                this.validarArreglos("Pais", pais);
+            }
+            validarGeneros(generos){
+                this.validarArreglos();
+            }
+            
+        }
+
+
+        const peli = new Pelicula({
+            id:"tt1234567",
+            titulo:"Blanca Nieves",
+            director:"Ernesto Caceres",
+            estreno: 2002,
+            pais:["Mexico","Estados Unidos"]
+        });
+        
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEGUNDA PAGINA DEL CURSO JAVASCRIPT</title>
+</head>
+<body>
+    <h1>CURSO JAVASCRIPT PAGINA 2 (25 - )</h1>
+
+    <div style="margin: 30px; font-size: 25px;">
+        <a href="index.html">VOLVER PRIMER PAGINA DEL CURSO (0 - 24 )</a>
+    </div>
+
+    <!-- **************************** -->
+    <!-- 25 .- EXPRESIONES REGULARES-->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              25 .- EXPRESIONES REGULARES (son validaciones)\n\n "     );
+
+        console.log("   | ESTE TEMA ESTA MUY INTERESANTE CHECAR DOCUMENTACION DE MDN O PROFUNDIZAR DE VARIAS FORMAS EN ESTAS VALIDACIONES    \n\n")
+
+        console.log("las expresiones regulares sirven para VALIDAR COSAS mas comunmente para VALIDAR CADENAS DE TEXTO y en stackoverflow o en internet puedes buscar por ejemplo: ")
+        console.log("Expresion regular para validar correo electronico, Expresion regular para validar RFC, tarjeta de credito, etc\n\n")
+        console.log(`DOCUMENTACION DE TODAS LAS BANDERAS Y COMODINES PARA VALIDACIONES: `)
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+        console.log("https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions")
+
+        //  PRIMER EXPRESION REGULAR PARA ENCONTRAR UNA PALABRA
+        console.log("\n\nPRIMER VALIDACION CON EXPRESIONES REGULARES: encontrar la palabra `esta` dentro de la cadena, con banderas para encontrar todas no solo la primera y con la bandera de ignorar mayuscular y minusculas")
+
+        // EXISTEN DOS FORMAS DE HACERLO
+        let cadenaDeTexto = "\n\nEsta es una cadena de texto para verificar si contiene la palabra `esta` ignorando mayusculas y minusculas "
+        console.log(cadenaDeTexto);
+
+        //          |  PRIMER FORMA:  |
+        // dentro de las llaver del objeto RegExp(comodin, banderas) van PRIMERO LAS PALABRAS A BUSCAR y despues las BANDERAS O COMODINES de la documentacion de arriba para hacer validaciones a la cadena de texto
+        
+        // comodin = buscar palabra "esta"
+        // bendera i = ignora mayusculas y minusculas
+        // bandera g = no se detiene en la primer palabra encontrada en este caso "esta" encontrada, sigue buscando mas
+        let expresionRegularVariable1 = new RegExp("esta", "ig")
+
+        //          |  SEGUNDA FORMA:  |
+        // dentro de: /comodin/ aqui las banderas; 
+
+        // comodin = buscar palabra "esta"
+        // bandera i = igual que arriba
+        // bandera g = igual que arriba
+        let expresionRegularVariable2 = /esta/ig;
+
+        //          |  COMO HACER LA VALIDACION:  |
+        // la validacion se hace con el nombre de la variable que creamos con un punto y hay dos opciones que son diferentes
+        
+        // expresionRegularVariable1.test(cadenaDeTexto)  ->  esta retorna como resultado solamente un bool de TRUE o FALSE dependiendo lo que validamos
+        console.log(expresionRegularVariable1.test(cadenaDeTexto));
+        console.log(expresionRegularVariable2.test(cadenaDeTexto));
+
+         // expresionRegularVariable1.exec(cadenaDeTexto)  -> esta retorna un arreglo con los resultados, index (en donde se encontro la ultima palabra) y mas cosas
+         console.log(expresionRegularVariable1.exec(cadenaDeTexto));
+         console.log(expresionRegularVariable2.exec(cadenaDeTexto));
+
+
+
+        //  SEGUNA EXPRESION REGULAR AHORA CON BUSCAR NUMEROS
+        console.log("\n\nSEGUNDA VALIDACION CON EXPRESIONES REGULARES: validar si la cadena de texto contiene numeros o no")
+
+        // primer validacion
+        let cadenaDeTexto2 = "\n\n 1 2 3 4 5, esto es una cadena de texto en la que se validara si contiene numeros del 0 al 9"
+        console.log(cadenaDeTexto2);
+        // comodin \d : verificar si contiene un numero del 0 al 9
+        // bandera g: no se detiene en el primer numero en ese rango encontrado
+        let expresionRegularVariable3 = /\d/g;
+        console.log(expresionRegularVariable3.test(cadenaDeTexto2));
+        console.log(expresionRegularVariable3.exec(cadenaDeTexto2));
+        
+        
+        // sagunda validacion
+        let cadenaDeTexto3 = "\n\n Esto es otra cadena de texto para verificar si contiene numeros del cero al nueve"
+        console.log(cadenaDeTexto3)
+        let expresionRegularVariable4 = /\d/g;
+        console.log(expresionRegularVariable4.test(cadenaDeTexto3));
+        console.log(expresionRegularVariable4.exec(cadenaDeTexto3));
+        
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 26 .- FUNCIONES ANONIMAS AUTOEJECUTABLES-->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              26 .- FUNCIONES ANONIMAS AUTOEJECUTABLES\n\n "     );
+
+        // la funcion anonima autoejecutable sirve mas que nada para derles alias a objetos que pasamos como parametros dentro de esa funcion
+        // y esta funcion autoejecutable no necesita ser llamada se ejecuta al momento de escribirla
+        // LLEVA A FUERZA EL PUNTO Y COMA ALFINAL;
+        
+        // el document ahora lo podremos trabajar como "d"
+        // el window ahora lo podemos trabajar como "w"
+        // el console lo podemos trabajar como "c"
+        (function(d,w,c){
+
+            c.log("esta es una funcion anonima autoejecutable") //console.log
+            c.log(d)
+            c.log(w)
+            // ESTE PODRIA SERVIR POR EJEMPLO CUANDO INTERATUAMOS MUCHO CON HTML Y USAMOS DEMASIADO EL GetDocumentById, le PODRIAMOS DAR UN ALIAS MAS CORTO PARA TRABAJAR MAS FACIL
+            c.log("ESTE PODRIA SERVIR POR EJEMPLO CUANDO INTERATUAMOS MUCHO CON HTML Y USAMOS DEMASIADO EL GetDocumentById, le PODRIAMOS DAR UN ALIAS MAS CORTO PARA TRABAJAR MAS FACIL\n\n")
+        })(document,window,console);
+
+        // forma clasica
+        (function(){
+            console.log("FORMA CLASICA DE FUNCIONES A.A")
+        })();
+        // forma Crockford
+        ((function(){
+            console.log("FORMA CROCKFORD")
+        })());
+        // FORMA UNARIA
+        +function(){
+            console.log("FORMA UNARIA")
+        }();
+        // FORMA FACEBOOK
+        !function(){
+            console.log("FORMA FACEBOOK")
+        }();
+
+        
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+
+    <!-- **************************** -->
+    <!-- 27 .- MODULOS (IMPORT & EXPORT)-->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              27 .- MODULOS (IMPORT & EXPORT)\n\n "     );
+
+
+        console.log("| IR A ARCHIVO 27__import&export AHI VIENEN LOS EJEMPLOS DE ESTE TEMA, IGUAL EN LA CARPETA `js` |\n\n")
+
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+    <a href="27__import&export.html">27__IMPORT Y EXPORT</a>
+
+
+    <!-- **************************** -->
+    <!-- 28 .- TYPEOF-->
+    <!-- **************************** -->
+    <script>
+        console.log("***********************************************************************");
+        console.log("              28 .- TYPEOF\n\n "     );
+
+
+        console.log("| el typeof es una funcion que te permite identificar que tipo de dato es lo que se le introdujo |\n\n")
+        console.log("SIRVE MUCHO PARA HACER VALIDACIONES CON IF PARA VER SI ESTA INTRODUCIENDO EL TIPO DE DATO ESTABLECIDO\n\n\n")
+
+        let numero = 15;
+
+        if(typeof(numero) == "number"){
+            console.log("SI ES UN NUMERO LA VARIABLE")
+        } else{
+            console.log("ESO NO ES UN NUMERO")
+        }
+
+
+        console.log("*********************************************************************** \n\n\n");
+    </script>
+
+    <div style="margin: 30px; font-size: 25px;">
+        <a href="Ejercicios_logica_de_programacion/1_Ejercicios.html">EJERCICIOS LOGICA DE PROGRAMACION 1</a>
+    </div>
+</body>
+</html>
